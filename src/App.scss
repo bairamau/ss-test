@@ -145,8 +145,12 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
 .footer {
   height: 127px;
   background-color: $black;
-  align-content: end;
-  padding-bottom: 19px;
+
+  &__image {
+    display: block;
+    margin: auto;
+    height: 80px;
+  }
 
   &__text {
     text-align: center;
@@ -176,6 +180,12 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
     height: 451px;
     padding-bottom: 44px;
 
+    background-image: url("./images/earth.webp");
+    background-repeat: no-repeat;
+    background-origin: padding-box;
+    background-size: 330px;
+    background-position: center top -108px;
+
     @include md {
       height: 420px;
       align-items: flex-start;
@@ -183,6 +193,8 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
       padding-top: 100px;
       padding-bottom: 100px;
       gap: 22px;
+
+      background-position:  right -105px top 26px;
     }
 
     @include lg {
@@ -192,6 +204,8 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
       padding-top: 90px;
       padding-bottom: 120px;
       gap: 22px;
+
+      background-position:  right 60px top 60px;
     }
   }
 

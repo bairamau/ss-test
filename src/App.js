@@ -4,6 +4,7 @@ import nebulae3 from "./images/nebulae-3.webp"
 import nebulae4 from "./images/nebulae-4.webp"
 import nebulae5 from "./images/nebulae-5.webp"
 import logo from "./images/logo.svg"
+import rocket from "./images/rocket.webp"
 
 function App() {
   return (
@@ -143,10 +144,14 @@ function App() {
             crew ensures an unforgettable journey, offering breathtaking views of Earth and the
             mesmerizing beauty of distant galaxies. Your adventure to the stars begins here.
           </p>
-          <label className="info__input-label text text_secondary text_bolder" htmlFor="more"></label>
+          <label
+            className="info__input-label text text_secondary text_bolder"
+            htmlFor="more"
+          ></label>
         </section>
       </main>
       <footer className="footer">
+        <img src={rocket} alt="Rocketship" className="footer__image" />
         <p className="text text_secondary footer__text">Exciting space adventure!</p>
       </footer>
     </>
