@@ -84,12 +84,13 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
 
   &__burger-checkbox {
     all: unset;
-    background-image: url("./images/burger-menu.svg");
+    background-image: url("./images/burger-menu.svg"), url("./images/x.svg");
+    background-size: auto, 0;
     width: 33px;
     height: 38px;
 
     &:checked {
-      background-image: url("./images/x.svg");
+      background-size: 0, auto;
     }
 
     &:checked + .menu {
