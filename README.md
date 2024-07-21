@@ -1,3 +1,11 @@
+# Project info
+
+Deployed site: https://bairamau.github.io/ss-test/
+
+Node version: `v20.15.1`\
+NPM version: `10.7.0`\
+Time spent: ~12 hours
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
