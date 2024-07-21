@@ -1,22 +1,35 @@
-$screen-sm: 768px;
-$screen-md: 1248px;
+$screen-md: 768px;
+$screen-lg: 1248px;
 $black: #000;
 $white: #fff;
 $background: hsl(221, 40%, 32%);
 $primary: hsl(316, 100%, 72%);
 $secondary: hsl(65, 100%, 50%);
 $neutral: hsla(223, 35%, 9%, 0.79);
+$hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
+
+@mixin md {
+  @media (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $screen-lg) {
+    @content;
+  }
+}
 
 .container {
-  max-width: $screen-md;
+  max-width: $screen-lg;
   margin: 0 auto;
   padding: 0 20px;
 
-  @media (min-width: $screen-sm) {
+  @include md {
     padding: 0 30px;
   }
 
-  @media (min-width: $screen-md) {
+  @include lg {
     padding: 0 80px;
   }
 }
@@ -24,11 +37,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
 .section {
   margin-bottom: 50px;
 
-  @media (min-width: $screen-sm) {
+  @include md {
     margin-bottom: 55px;
   }
 
-  @media (min-width: $screen-md) {
+  @include lg {
     margin-bottom: 60px;
   }
 
@@ -36,11 +49,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-size: 1.125rem;
     font-weight: 800;
 
-    @media (min-width: $screen-sm) {
+    @include md {
       font-size: 1.5rem;
     }
 
-    @media (min-width: $screen-md) {
+    @include lg {
       font-size: 2rem;
     }
   }
@@ -50,8 +63,82 @@ $neutral: hsla(223, 35%, 9%, 0.79);
   height: 48px;
   background-color: $black;
 
-  @media (min-width: $screen-sm) {
+  @include md {
     height: 80px;
+  }
+
+  &__container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: auto;
+    width: 71px;
+
+    @include lg {
+      width: 104px;
+    }
+  }
+
+  &__burger-checkbox {
+    all: unset;
+    background-image: url("./images/burger-menu.svg");
+    width: 33px;
+    height: 38px;
+
+    &:checked {
+      background-image: url("./images/x.svg");
+    }
+
+    &:checked + .menu {
+      display: flex;
+    }
+
+    @include md {
+      display: none;
+    }
+  }
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  background-color: $black;
+
+  @include md {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  &__link {
+    padding: 16px 20px;
+    font-size: 1.125rem;
+    text-align: right;
+    color: $white;
+    text-decoration: none;
+
+    @include md {
+      padding: 16px;
+    }
+
+    &:hover {
+      background-clip: text;
+      color: transparent;
+      background-image: $hover-gradient;
+
+      path {
+        fill: url(#hover-gradient);
+        fill-opacity: 0.6;
+      }
+    }
   }
 }
 
@@ -74,6 +161,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
   background-size: auto, cover;
   background-position: center, center;
 
+  @include md {
+    background-image: linear-gradient(to left, rgba($black, 0), $neutral),
+    url("./images/nebulae-1.webp");
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -84,7 +176,7 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     height: 451px;
     padding-bottom: 44px;
 
-    @media (min-width: $screen-sm) {
+    @include md {
       height: 420px;
       align-items: flex-start;
       text-align: initial;
@@ -93,7 +185,7 @@ $neutral: hsla(223, 35%, 9%, 0.79);
       gap: 22px;
     }
 
-    @media (min-width: $screen-md) {
+    @include lg {
       height: 490px;
       align-items: flex-start;
       text-align: initial;
@@ -107,12 +199,12 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-size: 2.25rem;
     line-height: 100%;
 
-    @media (min-width: $screen-sm) {
+    @include md {
       font-size: 3rem;
       max-width: 60%;
     }
 
-    @media (min-width: $screen-md) {
+    @include lg {
       font-size: 4.5rem;
     }
   }
@@ -122,11 +214,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-weight: 800;
     line-height: 120%;
 
-    @media (min-width: $screen-sm) {
+    @include md {
       font-size: 1.375rem;
     }
 
-    @media (min-width: $screen-md) {
+    @include lg {
       font-size: 2rem;
     }
   }
@@ -139,7 +231,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-size: 1rem;
     text-decoration: none;
 
-    @media (min-width: $screen-sm) {
+    &:hover {
+      background-color: rgba($secondary, 0.6);
+    }
+
+    @include md {
       padding: 14px 40px;
       font-size: 1.375rem;
     }
@@ -150,11 +246,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
   display: grid;
   gap: 30px;
 
-  @media (min-width: $screen-sm) {
+  @include md {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: $screen-md) {
+  @include lg {
     gap: 40px;
   }
 
@@ -170,23 +266,72 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     padding-bottom: 20px;
     opacity: 0.6;
 
-    @media (min-width: $screen-sm) {
+    @include md {
       padding-top: 13px;
       padding-bottom: 20px;
       font-size: 1rem;
     }
 
-    @media (min-width: $screen-md) {
+    @include lg {
       padding-top: 17px;
       padding-bottom: 17px;
       font-size: 1.25rem;
     }
+
+    &_hidden {
+      opacity: 0;
+      max-height: 0;
+      font-size: 0;
+      transition: 0.25s ease;
+      padding: 0;
+    }
   }
 
-  &__button {
-    background: none;
-    border: none;
-    padding: 0;
+  &__input {
+    all: unset;
+
+    &:checked ~ .info__text_hidden {
+      font-size: 0.875rem;
+      padding-bottom: 20px;
+      opacity: 0.6;
+      max-height: 999rem;
+
+      @include md {
+        padding-bottom: 20px;
+        font-size: 1rem;
+      }
+
+      @include lg {
+        padding-bottom: 17px;
+        font-size: 1.25rem;
+      }
+    }
+
+    & ~ .info__input-label::before {
+      content: "Show more";
+    }
+
+    &:checked ~ .info__input-label::before {
+      content: "Show less";
+    }
+  }
+
+  &__input-label {
+    font-size: 0.875rem;
+
+    @include md {
+      font-size: 1rem;
+    }
+
+    @include lg {
+      font-size: 1.25rem;
+    }
+
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }
 
@@ -204,17 +349,17 @@ $neutral: hsla(223, 35%, 9%, 0.79);
 
   border-radius: 10px;
 
-  @media (min-width: $screen-sm) {
+  @include md {
     aspect-ratio: 338 / 350;
   }
 
-  @media (min-width: $screen-md) {
+  @include lg {
     height: 350px;
     aspect-ratio: initial;
   }
 
   &_large {
-    @media (min-width: $screen-md) {
+    @include lg {
       grid-column: 1 / -1;
     }
   }
@@ -224,12 +369,12 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     line-height: 100%;
     max-width: 280px;
 
-    @media (min-width: $screen-md) {
+    @include lg {
       font-size: 2.875rem;
     }
 
     &_large {
-      @media (min-width: $screen-md) {
+      @include lg {
         max-width: 60%;
         font-size: 4.625rem;
       }
@@ -240,12 +385,12 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-size: 1rem;
     line-height: 120%;
 
-    @media (min-width: $screen-md) {
+    @include lg {
       font-size: 1.5rem;
     }
 
     &_large {
-      @media (min-width: $screen-md) {
+      @include lg {
         font-size: 1.625rem;
       }
     }
@@ -259,7 +404,11 @@ $neutral: hsla(223, 35%, 9%, 0.79);
     font-size: 1rem;
     text-decoration: none;
 
-    @media (min-width: $screen-md) {
+    &:hover {
+      opacity: 0.6;
+    }
+
+    @include lg {
       padding: 14px 40px;
       font-size: 1.375rem;
     }
