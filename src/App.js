@@ -15,14 +15,15 @@ function App() {
           <input type="checkbox" id="burger" className="header__burger-checkbox" />
           <nav className="menu">
             <a href="/" className="menu__link">
-              Home
+              <span className="menu__link-background">Homes</span>
             </a>
             <a href="/" className="menu__link">
-              Products
+              <span className="menu__link-background">Products</span>
             </a>
             <a href="/" className="menu__link">
-              <svg className="menu__cart-icon" viewBox="0 0 24 20" fill="none" width={24}>
+              <svg viewBox="0 0 24 20" fill="none" width={24}>
                 <path
+                  className="menu__cart-icon-path"
                   fillRule="evenodd"
                   clipRule="evenodd"
                   d="M9.2 18.2a1.8 1.8 0 0 0-3.7 0c0 1 .9 1.8 1.9 1.8 1 0 1.8-.8 1.8-1.8Zm13 0c0-1-.9-1.8-1.9-1.8-1 0-1.8.8-1.8 1.8s.8 1.8 1.8 1.8 1.9-.8 1.9-1.8ZM24 2.7c0-.5-.4-.9-1-.9H5.9C5.6 1.1 5.6 0 4.6 0H1A1 1 0 0 0 0 1c0 .4.4.8 1 .8h2.9l2.5 11.7c-.2.4-.9 1.5-.9 2s.5.9 1 .9h14.7c.5 0 1-.4 1-1 0-.4-.5-.9-1-.9H8c.1-.2.3-.5.3-.9l-.2-1 15-1.7c.6 0 1-.4 1-.9V2.7Z"

@@ -131,15 +131,20 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
     }
 
     &:hover {
-      background-clip: text;
-      color: transparent;
-      background-image: $hover-gradient;
+      .menu__link-background {
+        background-image: $hover-gradient;
+        color: transparent;
+      }
 
-      path {
+      .menu__cart-icon-path {
         fill: url(#hover-gradient);
         fill-opacity: 0.6;
       }
     }
+  }
+
+  &__link-background {
+    background-clip: text;
   }
 }
 
@@ -333,6 +338,11 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
 
   &__input-label {
     font-size: 0.875rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     @include md {
       font-size: 1rem;
@@ -340,12 +350,6 @@ $hover-gradient: linear-gradient(98deg, $secondary 18.56%, $primary 76.02%);
 
     @include lg {
       font-size: 1.25rem;
-    }
-
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.6;
     }
   }
 }
